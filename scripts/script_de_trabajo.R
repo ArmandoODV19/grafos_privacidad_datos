@@ -1,5 +1,8 @@
 # script de trabajo
 
+
+# grafo acciones meta
+
 meta <- read_csv("data/META.csv")
 
 ggplot(meta, aes(Date, Close)) +
