@@ -17,7 +17,7 @@ ggplot(meta, aes(Date, Close)) +
 
 # pago Trump a CA
 
-fecha <- c("2016-07-29", "2016-08-18", "2019-09-01", "2016-10-19", "2016-12-12")
+fecha <- c("2016-07-29", "2016-08-18", "2016-09-01", "2016-10-19", "2016-12-12")
 
 fecha <- as.Date(fecha)
 
@@ -26,3 +26,12 @@ pago <- c(100000, 250000, 5000000, 250000, 312000)
 # creando data frame
 df <- data.frame(fecha, pago)
 print(df)
+
+ggplot(df, aes(fecha, pago)) +
+  geom_line(size = 2, color = 'red') +
+  geom_point(size = 2) +
+  theme_bw() +
+  xlab('Fecha 2016')+
+  ylab('Pago a Cambridge Analytica [USD]') +
+  scale_y_continuous(labels = label_comma()) +
+  scale_x_date(date_labels="%d %b",date_breaks  ="10 days")
